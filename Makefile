@@ -303,7 +303,8 @@ synthesis   = $(proj_path)/$(proj_name).runs/synth_1/riscv_wrapper.dcp
 bitstream   = $(proj_path)/$(proj_name).runs/impl_1/$(FPGA_FNM)
 cfgmem_file = workspace/$(CONFIG)/$(proj_name).$(CFG_FORMAT)
 prm_file    = workspace/$(CONFIG)/$(proj_name).prm
-vivado      = env XILINX_LOCAL_USER_DATA=no vivado -mode batch -nojournal -nolog -notrace -quiet
+VIVADO_PATH = /home/ricky/open/07_vitis2020.2/xilinx/Vivado/2020.2/bin
+vivado      = env XILINX_LOCAL_USER_DATA=no $(VIVADO_PATH)/vivado -mode batch -nojournal -nolog -notrace -quiet
 
 workspace/$(CONFIG)/system-$(BOARD).tcl: workspace/$(CONFIG)/rocket.vhdl workspace/$(CONFIG)/system-$(BOARD).v
 	echo "set vivado_board_name $(BOARD)" >$@
